@@ -1,30 +1,40 @@
 import { FC } from "react";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import { FaCartShopping } from "react-icons/fa6";
+import ReactStars from 'react-stars';
 import './ProductCard.styles.scss';
 
 export interface ProductCardProps {
-    imageUrl: string;
-    imageText?: string;
+    id: string;
+    imagesUrl: string[];
     description: string;
     price: number;
     stars: number;
     discount?: number;
+    title: string;
 }
 
 const ProductCard: FC<ProductCardProps> = ({
-    imageUrl,
-    imageText,
+    imagesUrl,
     description,
     price,
-    discount
+    stars,
+    discount,
+    id
 }) => {
-    return <div className="product-card">
-        <img 
+    return <a className="product-card"
+        href={`product/${id}`}>
+        <img
             className="product-card-img" 
-            src={imageUrl} 
-            alt={imageText} />
+            src={imagesUrl[0]}
+            alt="" />
         <label>{description}</label>
+        <ReactStars
+            count={5}
+            size={16}
+            value={stars}
+            edit={false}
+        />
         <div className="product-card-footer">
             <p>
                 <label
@@ -42,7 +52,7 @@ const ProductCard: FC<ProductCardProps> = ({
                 iconAfter={() => <FaCartShopping />}
             />
         </div>
-    </div>   
+    </a>
 }
 
 export { ProductCard };

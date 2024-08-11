@@ -1,6 +1,6 @@
+import { Catalog } from "../../components/Catalog/Catalog";
 import { Hero } from "../../components/Hero/Hero";
-import { ProductCard } from "../../components/ProductCard/ProductCard";
-import { catalog } from "../../data/catalog";
+import { catalogMen } from "../../data/catalog";
 
 const heroMenPage = {
     imageUrl: 'https://cuadra.com.mx/cdn/shop/files/H310BOA_1080x1080.jpg?v=1710269551',
@@ -15,10 +15,7 @@ const heroMenPage = {
 const MenPage = () => {
     return <>
         <Hero {...heroMenPage}/>
-        { catalog && 
-            catalog.map((product) => 
-            <ProductCard {...product} />
-        )}
+        <Catalog productList={catalogMen}/>
     </>
 }
 
