@@ -1,13 +1,26 @@
 .product-page {
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
     padding: 2rem;
+
+    &-body {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 3rem;
+    }
 
     &-carousel,
     &-detail-wrapper {
         width: 50%;
         padding: 1rem;
+        height: max-content;
+
+        img {
+            height: calc(75vh - 48px);
+            // aspect-ratio: 3 / 2;
+            width: 100%;
+            object-fit: cover;
+        }
     }
 
     &-detail-price-wrapper {

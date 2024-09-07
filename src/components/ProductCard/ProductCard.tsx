@@ -12,6 +12,7 @@ export interface ProductCardProps {
     stars: number;
     discount?: number;
     title: string;
+    quantity?: number;
 }
 
 const ProductCard: FC<ProductCardProps> = ({

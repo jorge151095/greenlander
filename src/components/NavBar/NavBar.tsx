@@ -6,11 +6,13 @@ import './NavBar.styles.scss';
 
 const NavBar = () => {
     return <div className="nav-bar">
-        <ImageFrame 
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjKuaHuT1Q00XTU3DBvCgN5TT1n7KHb70WyA&s"
-            alt="logo-greenlander"
-            width="50"
-        />
+        <a href="/">
+            <ImageFrame 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjKuaHuT1Q00XTU3DBvCgN5TT1n7KHb70WyA&s"
+                alt="logo-greenlander"
+                width="50"
+            />
+        </a>
         <Menu />
         <NavUtils />
     </div>

@@ -13,7 +13,6 @@ export interface ButtonLinkProps {
 
 const ButtonLink: FC<ButtonLinkProps>
     = ({ href, label, className, iconAfter }) => {
-        console.log(label)
     const classes = classNames('button-link', className);
 
     return <a className={classes} href={href}>
