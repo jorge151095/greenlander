@@ -4,6 +4,9 @@ import { ProductCardProps } from "../../components/ProductCard/ProductCard";
 
 import './ShoppingCart.styles.scss';
 import { setToLocalStorage } from "../../utils/localStorage";
+import Button from "../../components/Button/Button";
+import Input from "../../components/Input/Input";
+import ButtonLink from "../../components/ButtonLink/ButtonLink";
 
 const PRODUCT_LIST_KEY = "PRODUCT_LIST_KEY";
 
@@ -55,6 +58,14 @@ const ShoppingCartPage = () => {
     return <div className="shopping-cart-page">
         <h1>Carrito</h1>
         <div className="shopping-cart-page-list">
+            <div className="shopping-cart-page-list-headline">
+                <label>
+                    Precio
+                </label>
+                <label>
+                    Total
+                </label>
+            </div>
             {
                 productList.map((product: ProductCardProps) => {
                     return <div className="shopping-cart-page-product">
@@ -65,14 +76,22 @@ const ShoppingCartPage = () => {
                             <div>
                                 {product.description}
                             </div>
-                            <div>
-                                CANTIDAD:
-                                <input 
-                                    type="number"
-                                    defaultValue={product.quantity}
-                                    onChange={(e) => {handleOnQuantityChange(e, product.id)}}/>
+                            <div className="shopping-cart-page-product-quantity">
+                                <div>
+                                    <label>CANTIDAD:</label>
+                                    <Input
+                                        className="dark"
+                                        type="number"
+                                        defaultValue={product.quantity}
+                                        onChange={(e) => {handleOnQuantityChange(e, product.id)}}/>
+                                </div>
+                                <Button 
+                                    type="button"
+                                    onClick={() => handleClick(product.id)}
+                                    label="Eliminar"
+                                    className="dark"
+                                />
                             </div>
-                            <button onClick={() => handleClick(product.id)}>Eliminar</button>
                         </div>
                         <div className="shopping-cart-page-product-price">
                             ${product.price}
@@ -83,7 +102,10 @@ const ShoppingCartPage = () => {
                     </div>
                 })
             }
-            <div>Total: ${total}</div>
+            <div className="shopping-cart-page-total">
+                <label>Total: ${total}</label>
+                <ButtonLink href="checkout" label="Proceder al pago" className="dark" />
+            </div>
         </div>
     </div>
 };

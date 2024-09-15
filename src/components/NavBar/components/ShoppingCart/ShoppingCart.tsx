@@ -17,7 +17,7 @@ const ShoppingCart = () => {
     }, [productList]);
 
     return <div>
-        <IconLink href="shopping-cart" 
+        <IconLink href="/shopping-cart"
             label={
                 productList.length > 0 ? 
                 String(count) : 

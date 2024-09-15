@@ -1,5 +1,8 @@
 import { useParams } from 'react-router-dom';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './Product.styles.scss';
 import EmblaCarousel from '../../components/EmblaCarousel/EmblaCarousel';
 import { useContext, useEffect, useState } from 'react';
@@ -10,6 +13,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Catalog } from '../../components/Catalog/Catalog';
 import { ShoppingCartContext } from '../../providers/ShoppingCartContext';
 import { setToLocalStorage } from '../../utils/localStorage';
+import Input from '../../components/Input/Input';
 
 interface ProductFormProps {
     quantity: number;
@@ -65,6 +69,7 @@ const ProductPage = () => {
                 Number(data.quantity);
             setProductList([...productList]);
         }
+        toast.info("Producto añadido al carrito");
     };
 
     if (!product) {
@@ -95,25 +100,26 @@ const ProductPage = () => {
                     edit={false}
                 />
                 {product.description}
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <label>
-                        Cantidad
-                        <select {...register('quantity')}>
+                <form className='product-page-form' onSubmit={handleSubmit(onSubmit)}>
+                    <div className='product-page-form-quantity'>
+                        <label>
+                            Cantidad
+                        </label>
+                        <select className='select dark' {...register('quantity')}>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
                             <option value={3}>3</option>
                             <option value={4}>4</option>
                             <option value={5}>5</option>
                         </select>
-                        <input 
-                            type='submit' 
-                            value="Agregar al carrito" />
-                    </label>
+                    </div>
+                    <Input type='submit' value="Agregar al carrito" className='dark' />
                 </form>
             </div>
         </div>
         <label>Productos relacionados:</label>
         <Catalog productList={catalogMen.slice(1, 4)}/>
+        <ToastContainer />
     </div>
 };
 
