@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import './checkout.styles.scss';
+import { PaypalButton } from '../../PaypalButton';
 
 const Checkout = () => {
     const { register, handleSubmit } = useForm();
@@ -26,6 +27,8 @@ const Checkout = () => {
             <input type="text" {...register("state")}/>
             <label>Número de teléfono</label>
             <input type="number" {...register("phoneNumber")}/>
+            aqui deberia de estar mi botton
+            <PaypalButton totalValue={'10.99'} invoice={'CHAMARRA DE PIEL'}/>
             <button type='submit'>Continuar compra</button>
         </form>
     </div>
