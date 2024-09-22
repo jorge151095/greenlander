@@ -24,7 +24,7 @@ const ProductCard: FC<ProductCardProps> = ({
     id
 }) => {
     return <a className="product-card"
-        href={`product/${id}`}>
+        href={`/product/${id}`}>
         <img
             className="product-card-img" 
             src={imagesUrl[0]}

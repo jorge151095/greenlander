@@ -7,8 +7,14 @@ import { Footer } from './components/Footer/Footer';
 import { ShoppingCartContext } from './providers/ShoppingCartContext';
 import { useEffect, useState } from 'react';
 import { getFromLocalStorage } from './utils/localStorage';
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const PRODUCT_LIST_KEY = "PRODUCT_LIST_KEY";
+const ppInitialOptions = {
+  clientId: "test",
+  currency: "MXN",
+  intent: "capture",
+};
 
 function App() {
   const [productList, setProductList] = useState([]);
@@ -22,16 +28,18 @@ function App() {
   }, []);
 
   return (
-    <ShoppingCartContext.Provider value={{
-      productList,
-      setProductList
-    }}>
-      <div className="app">
-        <NavBar />
-        <RouterProvider router={router} />
-        <Footer />
-      </div>
-    </ShoppingCartContext.Provider>
+    <PayPalScriptProvider options={ppInitialOptions}>
+      <ShoppingCartContext.Provider value={{
+        productList,
+        setProductList
+      }}>
+        <div className="app">
+          <NavBar />
+          <RouterProvider router={router} />
+          <Footer />
+        </div>
+      </ShoppingCartContext.Provider>
+    </PayPalScriptProvider>
   );
 }
 
