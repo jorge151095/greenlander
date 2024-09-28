@@ -4,6 +4,8 @@ import { Homepage } from "../pages/homepage/Homepage";
 import { ProductPage } from "../pages/product/Product";
 import { ShoppingCartPage } from "../pages/shopping-cart/ShoppingCart";
 import { Checkout } from "../pages/checkout/checkout";
+import { WomenPage } from "../pages/women/Women";
+import { KidsPage } from "../pages/Kids/kids";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       path: "hombre",
       element: <MenPage />,
     },
+  {
+    path: "mujer",
+    element: <WomenPage />,
+  },
+{
+  path: "ninos",
+  element: <KidsPage />,
+},
     {
       path: "product/:productId",
       element: <ProductPage />
@@ -33,5 +43,6 @@ const router = createBrowserRouter([
       element: (<Navigate to="/" replace={true} />) 
     }
 ]);
+
 
 export { router };
