@@ -9,13 +9,14 @@ export interface ButtonLinkProps {
     label?: string | null;
     className?: string;
     iconAfter?: () => React.ReactElement;
+    style?: any;
 }
 
 const ButtonLink: FC<ButtonLinkProps>
-    = ({ href, label, className, iconAfter }) => {
+    = ({ href, label, className, iconAfter, style }) => {
     const classes = classNames('button-link', className);
 
-    return <a className={classes} href={href}>
+    return <a className={classes} href={href} style={style}>
         { // if (condicion) { se ejecuta } // FALSY - THRUTLY
             // FALSY -> undefined, cadena vacía, Null, 0, false
             // THRUTLY -> Cadena con algún valor
