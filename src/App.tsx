@@ -8,8 +8,11 @@ import { ShoppingCartContext } from './providers/ShoppingCartContext';
 import { useEffect, useState } from 'react';
 import { getFromLocalStorage } from './utils/localStorage';
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { FavoritesContext } from './providers/FavoritesContext';
 
 const PRODUCT_LIST_KEY = "PRODUCT_LIST_KEY";
+const FAVORITES_LIST_KEY = "FAVORITES_LIST_KEY";
+
 const ppInitialOptions = {
   clientId: "test",
   currency: "MXN",
@@ -18,6 +21,7 @@ const ppInitialOptions = {
 
 function App() {
   const [productList, setProductList] = useState([]);
+  const [favoritesList, setFavoritesList] = useState([]);
 
   // Obtiene el carrito de compras SI existe en la bodega
   useEffect(() => {
@@ -25,6 +29,11 @@ function App() {
     if (result) {
       setProductList(result);
     }
+    const favorites = getFromLocalStorage(FAVORITES_LIST_KEY);
+    if (favorites) {
+      setFavoritesList(favorites);
+    }
+
   }, []);
 
   return (
@@ -33,11 +42,17 @@ function App() {
         productList,
         setProductList
       }}>
-        <div className="app">
-          <NavBar />
-          <RouterProvider router={router} />
-          <Footer />
-        </div>
+        <FavoritesContext.Provider value={{
+          favoritesList,
+          setFavoritesList
+        }}
+        >
+          <div className="app">
+            <NavBar />
+            <RouterProvider router={router} />
+            <Footer />
+          </div>
+        </FavoritesContext.Provider>
       </ShoppingCartContext.Provider>
     </PayPalScriptProvider>
   );

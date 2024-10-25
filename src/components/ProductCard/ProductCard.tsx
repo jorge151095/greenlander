@@ -47,11 +47,6 @@ const ProductCard: FC<ProductCardProps> = ({
                         -{discount}%
                 </label>
             </p>
-            <ButtonLink 
-                href=""
-                className="dark"
-                iconAfter={() => <FaCartShopping />}
-            />
         </div>
     </a>
 }
