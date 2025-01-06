@@ -1,21 +1,22 @@
 import ImageFrame from "../ImageFrame/ImageFrame";
 import { Menu } from "./components/Menu/Menu";
 import { NavUtils } from "./components/NavUtils/NavUtils";
-
 import './NavBar.styles.scss';
 
 const NavBar = () => {
-    return <div className="nav-bar">
-        <a href="/">
-            <ImageFrame 
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjKuaHuT1Q00XTU3DBvCgN5TT1n7KHb70WyA&s"
-                alt="logo-greenlander"
-                width="50"
-            />
+    return ( 
+    <div className="nav-bar">
+        <a href="/" className="nav-bar-anchor" 
+        >
+            <div className="stylesLogo">
+                <div className="stylesLogo-tittle">Home Special</div>
+                <div className="stylesLogo-subtittle">Si Jehova no edificare, la casa es en vano.</div>
+            </div>
         </a>
         <Menu />
         <NavUtils />
     </div>
+    )
 }
 
 export default NavBar;

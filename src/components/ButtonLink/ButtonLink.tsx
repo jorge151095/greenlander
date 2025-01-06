@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
 import classNames from "classnames";
 
 import './ButtonLink.styles.scss';
+import './PersonalizeButtonStyle.scss';
 
 export interface ButtonLinkProps {
     href: string;
@@ -16,21 +16,19 @@ const ButtonLink: FC<ButtonLinkProps>
     const classes = classNames('button-link', className);
 
     return <a className={classes} href={href}>
-        { // if (condicion) { se ejecuta } // FALSY - THRUTLY
-            // FALSY -> undefined, cadena vacía, Null, 0, false
-            // THRUTLY -> Cadena con algún valor
-            label && // Pregunta si label es verdadero
-                <div className="button-link-label">
-                    {label}
+            { // if (condicion) { se ejecuta } // FALSY - THRUTLY
+                // FALSY -> undefined, cadena vacía, Null, 0, false
+                // THRUTLY -> Cadena con algún valor
+                label && // Pregunta si label es verdadero
+                <div className="initialContainer">
+                    <div className="containerButton">
+                        <div className="btn from-top"> {/* Usa la animación que prefieras */}
+                        {label}
+                        </div>
+                    </div>
                 </div>
-        }
-        { // if (condicion) { se ejecuta } else { cae aquí }
-            iconAfter ? // Pregunta si iconAfter es verdadero
-            // TRhutly -> es algo
-            iconAfter() : // <- Si es verdadero muestra iconAfter
-            <FaArrowRightLong /> // <- Sino muestra la flecha
-        }
-    </a>;
+            }
+        </a>;
 }
 
 export default ButtonLink;

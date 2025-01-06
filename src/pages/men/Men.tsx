@@ -3,7 +3,7 @@ import { Hero } from "../../components/Hero/Hero";
 import { catalogMen } from "../../data/catalog";
 
 const heroMenPage = {
-    imageUrl: 'https://cuadra.com.mx/cdn/shop/files/H310BOA_1080x1080.jpg?v=1710269551',
+    imageUrl: 'https://content.elmueble.com/medio/2022/03/21/00477853_8778b81d_2000x1335.jpg',
     imageText: 'Nueva temporada en chamarras de hombre',
     headline: 'Nueva temporada otoño-invierno en chamarras para hombre',
     button: {

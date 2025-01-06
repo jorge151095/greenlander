@@ -13,15 +13,25 @@
     "@types/react-dom": "^18.3.0",
     "classnames": "^2.5.1",
     "embla-carousel-react": "^8.1.8",
+    "feather-icons": "^4.29.2",
+    "framer-motion": "^11.9.0",
+    "jquery": "^3.7.1",
+    "moment": "^2.30.1",
+    "owl.carousel": "^2.3.4",
     "react": "^18.3.1",
+    "react-burger-menu": "^3.0.9",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.52.2",
     "react-icons": "^5.2.1",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.24.1",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.2",
+    "react-social-icons": "^6.18.0",
     "react-stars": "^2.2.5",
     "react-toastify": "^10.0.5",
     "sass": "^1.77.4",
+    "slick-carousel": "^1.8.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -50,6 +60,11 @@
     ]
   },
   "devDependencies": {
+    "@types/feather-icons": "^4.29.4",
+    "@types/jquery": "^3.5.31",
+    "@types/react-burger-menu": "^2.8.7",
+    "@types/react-modal": "^3.16.3",
+    "@types/react-slick": "^0.23.13",
     "@types/react-stars": "^2.2.4"
   }
 }

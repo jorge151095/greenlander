@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap");
+
 .product-card {
     display: flex;
     flex-direction: column;
@@ -5,9 +7,17 @@
     max-width: 25rem;
     text-decoration: none;
     color: black;
+    font-size: 1rem;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 800;
+    font-style: normal;
 
     &-img {
        max-width: 25rem; 
+    }
+
+    img:hover {
+        filter: opacity(.5);
     }
 
     &-footer {
@@ -30,5 +40,38 @@
 
     &:hover {
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+}
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .product-card {
+        padding: 0.5rem; /* Reduce el padding para ahorrar espacio */
+        max-width: 100%; /* Asegura que la tarjeta use todo el ancho disponible */
+        font-size: 0.875rem; /* Disminuye el tamaño de la fuente para que se ajuste mejor */
+    }
+
+    .product-card-img {
+        max-width: 100%; /* Ajusta la imagen al ancho de la tarjeta */
+    }
+
+    .product-card-footer {
+        flex-direction: column; /* Cambia la dirección para que los elementos se apilen verticalmente */
+        align-items: flex-start; /* Alinea los elementos al inicio para mayor orden */
+        gap: 0.5rem; /* Añade un espacio entre los elementos del pie de la tarjeta */
+    }
+
+    .product-card-price {
+        font-size: 0.75rem; /* Reduce el tamaño de la fuente */
+        font-weight: 600; /* Ajusta el peso para que sea legible */
+    }
+
+    .product-card-discount {
+        font-size: 12px; /* Disminuye el tamaño de la fuente */
+        padding: 0 0.1rem; /* Reduce el relleno para ahorrar espacio */
+        margin-left: 0; /* Quita el margen lateral para que se ajuste mejor */
+    }
+
+    .product-card img:hover {
+        filter: opacity(0.7); /* Ajusta el efecto hover para menor opacidad */
     }
 }

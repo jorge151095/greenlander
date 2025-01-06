@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap");
+
+.latestNews{
+    color: white;
+    display: flex;
+    font-size: 6.4rem;
+	font-family: "Nanum Myeongjo", serif;
+    font-weight: 500;
+	font-style: normal;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .latestNews{
+        color: black;
+        font-size: .8rem;     /* Ajustar el tamaño de la fuente */
+        max-width: 50rem;      /* Ajustar el ancho máximo para una mejor visualización */
+        line-height: 1.4;      /* Ajustar el espacio entre líneas */
+        padding: 0 10px; 
+        font-weight: bold;     /* Agregar algo de padding para evitar que el texto toque los bordes */
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+div, h2, p, figure {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    margin: 0 auto;
+    max-width: 1040px;
+    padding: 20px;
+}
+
+.columns {
+    display: flex;
+}
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .columns {
+        display: block;
+    }
+}
+
+.column {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    }
+
+.main-column {
+    flex: 2;
+}
+
+.article {
+    background: white;
+    color: #666;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    flex-basis: auto;
+    margin: 10px;
+}
+
+.article-image {
+    background: #eee;
+    display: block;
+    padding-top: 75%;
+    position: relative;
+    width: 100%;
+}
+
+.article-image img {
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.article-image.is-3by2 {
+    padding-top: 66.6666%;
+}
+
+.article-image.is-16by9 {
+    padding-top: 56.25%;
+}
+
+.article-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.article-title {
+    color: #333;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 600;
+	font-style: normal;
+}
+
+.article-content {
+    flex: 1;
+    margin-top: 5px;
+    font-size: 1rem;
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 700;
+	font-style: normal;
+}
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .article-content {
+        flex: 1;
+        margin-top: 5px;
+        font-size: .7rem;
+        font-family: "Nanum Myeongjo", serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+}
+
+.article-info {
+    display: flex;
+    font-size: 0.5em;
+    justify-content: space-between;
+    font-family: "Nanum Myeongjo", serif;
+    font-style:oblique;
+    font-weight: 1000;
+    margin-top: 10px;
+}
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .article-info {
+        display: flex;
+        font-size: 0.5rem;
+        justify-content: space-between;
+        font-family: "Nanum Myeongjo", serif;
+        font-style:oblique;
+        font-weight: 1000;
+        margin-top: 3px;   /* Agregar algo de padding para evitar que el texto toque los bordes */
+    }
+}

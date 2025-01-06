@@ -1,10 +1,12 @@
-import { Carousel } from "../../components/Carousel/Carousel";
 import { Hero } from "../../components/Hero/Hero";
-import { sales } from "../../data/sales";
-import { trendingProducts } from "../../data/trending-products";
+import { LatestNews } from "../../components/News/LatestNews";
+import { motion, useScroll, useTransform } from "framer-motion"
+import './Homepage.scss';
+import { useEffect, useState } from "react";
 
 const heroProps = {
-    imageUrl: 'https://media.glamour.mx/photos/65c2580aa55fdb59613f2829/16:9/w_3760,h_2115,c_limit/In-vs-out-Jacken-Trends-Aufmacher-GettyImages-1609603873.jpg',
+    //imageUrl: 'https://definicion.de/wp-content/uploads/2011/01/casa-2.jpg',
+    videoUrl: 'https://cdn.pixabay.com/video/2020/02/25/32862-394513943_large.mp4',
     imageText: 'greenlander-back',
     headline: 'Aprovecha las ofertas del HotSale, 15% descuento en chamarras de piel.',
     button: {
@@ -14,12 +16,46 @@ const heroProps = {
   };
 
 const Homepage = () => {
+      const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+      useEffect(() => {
+          const handleResize = () => {
+              setIsMobile(window.innerWidth <= 768);
+          };
+
+          window.addEventListener('resize', handleResize);
+
+          // Limpieza del event listener cuando el componente se desmonta
+          return () => {
+              window.removeEventListener('resize', handleResize);
+          };
+      }, []);
+      // Obtén la posición de desplazamiento
+      const { scrollY } = useScroll();
+
+      // Transforma la escala en base al scroll
+      const scale = useTransform(scrollY, [-20, 300], [2.4, 1]); // De 1.5x a tamaño original
     return <>
-        <Hero {...heroProps} />
-        <div className='app-body'>
-            <Carousel title="Tendencias" items={trendingProducts}/>
-            <Carousel title="Greenlander" items={sales} />
-        </div>
+      
+      <div className="sloganHomePage">
+        {isMobile ? <div > 
+          ENCUENTRA TU HOGAR
+          </div>
+        : 
+          <motion.div
+          className="container"
+          style={{ scale }}> 
+              <div  className="titulo"> 
+                  ENCUENTRA TU HOGAR
+              </div>
+          </motion.div>
+        }
+      </div>
+            <Hero {...heroProps} />
+      <div >
+        <LatestNews/>
+      </div>
+
     </>   
 };
 

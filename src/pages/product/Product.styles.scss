@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap");
+
 .product-page {
     display: flex;
     flex-direction: column;
@@ -7,6 +10,7 @@
         display: flex;
         flex-direction: row;
         margin-bottom: 3rem;
+        background: #070a070a;
     }
 
     &-carousel,
@@ -20,6 +24,11 @@
             // aspect-ratio: 3 / 2;
             width: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease-in-out; 
+        }
+
+        img:hover {
+            transform: scale(1.2); /* Aplica un zoom del 120% */
         }
     }
 
@@ -28,11 +37,14 @@
     }
 
     &-detail-title {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
+        font-family: "Libre Baskerville", serif;
+        font-weight: 400;
+        font-style: normal;
     }
 
     &-detail-price {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 700;
     }
 
@@ -41,16 +53,24 @@
         border-radius: 4px;
         color: #e32b2b;
         margin-left: 0.5rem;
-        font-size: 2rem;
+        font-size: 1rem;
         padding: 0 0.125rem;
         display: flex;
         align-items: center;
+    }
+
+    &-detail-description {
+        font-size: 1rem;
+        font-family: "Nanum Myeongjo", serif;
+        font-weight: 800;
+        font-style: normal;
     }
 
     &-form {
         display: flex;
         padding: 2rem 0;
         justify-content: start;
+        font-size: 1rem;
 
         &-quantity {
             display: flex;
@@ -61,6 +81,10 @@
                 padding-right: 1rem;
             }
         }
+
+        &-quantity-label{
+            font-weight: bold;
+        }
     }
 }
 
@@ -70,20 +94,66 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 15px;
+    padding: 5px 10px;
     text-decoration: none;
     color: white;
     border: 1px solid white;
     max-width: max-content;
 
     &.dark {
-        background-color: white;
+        appearance: none;
+        border: 0;
+        outline: 0;
+        font: inherit;
+        /* Personalize */
+        width: 5rem;
+        padding: .5rem 2rem .5rem .5rem;
+        background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+        linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
         color: black;
-        border-color: black;
-
+        border-radius: 0.25em;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        /* Remove IE arrow */
+        &::-ms-expand {
+          display: none;
+        }
+        /* Remove focus outline */
+        &:focus {
+          outline: none;
+        }
+        /* <option> colors */
+        option {
+          color: inherit;
+          background-color: var(--option-bg);
+        }
         &:hover {
             color: rgb(0, 113, 174);
             border-color: rgb(0, 113, 174);
         }
     }
+}
+
+.darkInput{
+    color: black !important;
+    border-radius: 0.25em;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        /* Remove IE arrow */
+        &::-ms-expand {
+          display: none;
+        }
+        /* Remove focus outline */
+        &:focus {
+          outline: none;
+        }
+        /* <option> colors */
+        option {
+          color: inherit;
+          background-color: var(--option-bg);
+        }
+        &:hover {
+            color: rgb(0, 113, 174);
+            border-color: rgb(0, 113, 174);
+        }
 }

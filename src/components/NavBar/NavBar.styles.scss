@@ -1,5 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Fjalla+One&family=Londrina+Sketch&family=Pacifico&family=Playwrite+DE+Grund:wght@100..400&family=Rye&family=Updock&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Fjalla+One&family=Londrina+Sketch&family=Pacifico&family=Playwrite+DE+Grund:wght@100..400&family=Updock&display=swap");
+
+body:has(.nav-bar--scrolled) {
+    .nav-bar {
+        background-color: #ffffff; // Cambia el fondo al hacer scroll
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Añade una sombra
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+}
+
+// Estilo por defecto
 .nav-bar {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(117 147 188 / 77%);
+    padding: .4rem 0;
+    z-index: 1000;
+}
+
+/*.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &-anchor{
+        text-decoration: none;
+    }
+}*/
+
+.stylesLogo{
+    display: block;
+    font-size: 13px;
+
+    &-tittle{
+        font-family: "Rye", serif;
+        font-weight: 400;
+        font-style: normal;
+        color: white;
+        margin: 0;
+        padding: 0.5px;
+    }
+    &-subtittle{
+        font-family: "Playwrite DE Grund", cursive;
+        font-optical-sizing: auto;
+        font-weight: weight;
+        font-style: normal;
+        font-size: 12px;
+        margin: 0;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .nav-bar {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        justify-content: center; /* Centra los elementos verticalmente */
+    }
+
+    .nav-bar-anchor {
+        font-size: 0.8rem; /* Disminuye el tamaño de la fuente para un mejor ajuste */
+    }
+
+    .stylesLogo {
+        font-size: 8px; /* Reduce el tamaño de la fuente general */
+    }
+
+    .stylesLogo-tittle {
+        font-size: 12px; /* Ajusta el tamaño de la fuente del título para que sea más pequeño */
+        padding: 0.2px; /* Reduce el padding para ahorrar espacio */
+    }
+
+    .stylesLogo-subtittle {
+        font-size: 10px; /* Reduce el tamaño de la fuente del subtítulo */
+    }
 }

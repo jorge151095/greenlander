@@ -3,12 +3,23 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './routes/root';
 
 import './App.css';
-import { Footer } from './components/Footer/Footer';
 import { ShoppingCartContext } from './providers/ShoppingCartContext';
 import { useEffect, useState } from 'react';
 import { getFromLocalStorage } from './utils/localStorage';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import {ReactPayPalScriptOptions} from  '@paypal/react-paypal-js';
+import { FooterMinimalist } from './components/FooterMinimalist/FooterMinimalist';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { NavBarReact } from './components/NavBar/NavBarReact';
+
+
 
 const PRODUCT_LIST_KEY = "PRODUCT_LIST_KEY";
+const ppInitialOptions = {
+  clientId: "test",
+  currency: "MXN",
+  intent: "capture"
+};
 
 function App() {
   const [productList, setProductList] = useState([]);
@@ -21,17 +32,28 @@ function App() {
     }
   }, []);
 
+  const { scrollYProgress } = useViewportScroll();
+  const color = useTransform(scrollYProgress, [0, 1], ["#FFFFFF", "#000"]);
+
   return (
-    <ShoppingCartContext.Provider value={{
-      productList,
-      setProductList
-    }}>
-      <div className="app">
-        <NavBar />
-        <RouterProvider router={router} />
-        <Footer />
-      </div>
-    </ShoppingCartContext.Provider>
+    <PayPalScriptProvider options={ppInitialOptions} >
+      <ShoppingCartContext.Provider value={{
+        productList,
+        setProductList
+      }}><motion.div
+      style={{
+        background: color,
+        height: "495vh",
+      }}
+         >
+          <div className="app">
+            <NavBarReact />
+            <RouterProvider router={router} />
+            <FooterMinimalist/>
+          </div>
+        </motion.div>
+      </ShoppingCartContext.Provider>
+    </PayPalScriptProvider>  
   );
 }
 

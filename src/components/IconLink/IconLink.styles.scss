@@ -10,3 +10,16 @@
         padding: 0 10px;
     }
 }
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .icon-link {
+        &-label {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 1rem;
+            font-size: .5rem;
+            padding: 0 5px;
+        }
+    }
+}

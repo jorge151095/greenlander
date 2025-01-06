@@ -98,11 +98,13 @@ const ProductPage = () => {
                     size={16}
                     value={product.stars}
                     edit={false}
-                />
-                {product.description}
+                /> 
+                <div className='product-page-detail-description'>
+                    {product.description}
+                </div>
                 <form className='product-page-form' onSubmit={handleSubmit(onSubmit)}>
                     <div className='product-page-form-quantity'>
-                        <label>
+                        <label className='product-page-form-quantity-label'>
                             Cantidad
                         </label>
                         <select className='select dark' {...register('quantity')}>
@@ -113,7 +115,7 @@ const ProductPage = () => {
                             <option value={5}>5</option>
                         </select>
                     </div>
-                    <Input type='submit' value="Agregar al carrito" className='dark' />
+                    <Input type='submit' value="Agregar al carrito" className='darkInput' />
                 </form>
             </div>
         </div>

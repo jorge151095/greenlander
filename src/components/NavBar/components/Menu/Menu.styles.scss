@@ -1,11 +1,33 @@
+//@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Londrina+Sketch&family=Pacifico&family=Updock&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap");
+
 .navbar-menu {
     display: flex;
+    font-size: 1.2rem;
+	font-family: "Nanum Myeongjo", serif;
+	font-weight: 500;
+	font-style: bold;
+
+    a {
+        text-decoration: none;
+        color: white;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+            border-bottom: 3px solid black;
+        }
+    }
+}
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .navbar-menu {
+        font-size: .8rem;  
+    }
 
     a {
         text-decoration: none;
         color: black;
-        padding: 0.5rem 1rem;
-
+        padding: 0;
         &:hover {
             border-bottom: 3px solid black;
         }
